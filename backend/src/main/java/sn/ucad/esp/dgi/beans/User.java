@@ -21,4 +21,8 @@ public class User {
     private String prenom;
     private String email;
     private String telephone;
+    
+	public Long getId() {
+		return id;
+	}
 }

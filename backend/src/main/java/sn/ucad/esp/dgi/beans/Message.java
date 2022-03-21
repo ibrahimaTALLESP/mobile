@@ -31,4 +31,9 @@ public class Message {
     private String message;
     private String date;
     private Status status;
+    
+    
+	public Long getId() {
+		return id;
+	}
 }

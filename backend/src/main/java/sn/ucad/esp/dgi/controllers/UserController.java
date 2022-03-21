@@ -34,8 +34,8 @@ class UserController {
 
 	@GetMapping("/user/{id}")
 	ResponseEntity<?> getUser(@PathVariable Long id) {
-		Optional<User> group = userRepository.findById(id);
-		return group.map(response -> ResponseEntity.ok().body(response))
+		Optional<User> user = userRepository.findById(id);
+		return user.map(response -> ResponseEntity.ok().body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
@@ -46,15 +46,15 @@ class UserController {
 		return ResponseEntity.created(new URI("/api/user/" + result.getId())).body(result);
 	}
 
-	@PutMapping("/group/{id}")
+	@PutMapping("/user/{id}")
 	ResponseEntity<User> updateUser(@RequestBody User user) {
 		log.info("Request to update a user: {}", user);
 		User result = userRepository.save(user);
 		return ResponseEntity.ok().body(result);
 	}
 
-	@DeleteMapping("/group/{id}")
-	public ResponseEntity<?> deleteGroup(@PathVariable Long id) {
+	@DeleteMapping("/user/{id}")
+	public ResponseEntity<?> deleteUser(@PathVariable Long id) {
 		log.info("Request to delete a user: {}", id);
 		userRepository.deleteById(id);
 		return ResponseEntity.ok().build();
