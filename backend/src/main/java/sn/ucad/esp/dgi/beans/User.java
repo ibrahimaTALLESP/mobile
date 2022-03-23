@@ -2,7 +2,9 @@ package sn.ucad.esp.dgi.beans;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -10,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Data
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -23,8 +26,4 @@ public class User {
 	private String prenom;
 	private String email;
 	private String telephone;
-
-	public Long getId() {
-		return id;
-	}
 }

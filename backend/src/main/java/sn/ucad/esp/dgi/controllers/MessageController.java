@@ -32,8 +32,8 @@ class MessageController {
 
 	@GetMapping("/message/{id}")
 	ResponseEntity<?> getMessage(@PathVariable Long id) {
-		Optional<Message> group = messageRepository.findById(id);
-		return group.map(response -> ResponseEntity.ok().body(response))
+		Optional<Message> message = messageRepository.findById(id);
+		return message.map(response -> ResponseEntity.ok().body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
