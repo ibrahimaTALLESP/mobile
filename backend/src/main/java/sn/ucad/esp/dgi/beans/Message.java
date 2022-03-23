@@ -14,25 +14,21 @@ import javax.persistence.Id;
 @Entity
 @Data
 public class Message {
-	
+
 	public enum Status {
-	    Online,
-	    Offline,
-	    Writing
+		Online, Offline, Writing
 	}
-	
+
 	@Id
 	@GeneratedValue
-    private Long id;
-	
-	
-    private String initiateur;
-    private String récepteur;
-    private String message;
-    private String date;
-    private Status status;
-    
-    
+	private Long id;
+
+	private User initiateur;
+	private User récepteur;
+	private String message;
+	private String date;
+	private Status status;
+
 	public Long getId() {
 		return id;
 	}
